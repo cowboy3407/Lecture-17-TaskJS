@@ -39,4 +39,5 @@ font-size: 15px;
 
 input {
     height: 40px;
+    border-radius: 10px;
 }
