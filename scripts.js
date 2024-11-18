@@ -10,8 +10,8 @@ let totalTask = 0;
 
 
 function counter() {
-    totalTaskText.textContent = `Total Tasks: ${totalTask}`
-    completedTaskText.textContent = `Completed Tasks ${completedTask}`
+    totalTaskText.textContent = `Total Tasks: ${totalTask}`;
+    completedTaskText.textContent = `Completed Tasks ${completedTask}`;
 }
 
 
@@ -32,11 +32,13 @@ button.addEventListener('click', function () {
         const buttonUndone = document.createElement('button')
         buttonUndone.textContent = 'Delete';
         buttonUndone.onclick = function () {
-            completedTask--;
+            if (textAnswer.style.textDecoration === 'line-through') {
+                completedTask--;
+            }
             totalTask--;
             counter();
             taskList.removeChild(textAnswer);
-        }
+        };
 
         textAnswer.appendChild(buttonDone);
         textAnswer.appendChild(buttonUndone);
@@ -44,8 +46,6 @@ button.addEventListener('click', function () {
 
         totalTask++;
         counter();
-
-
 
         input.value = '';
     } else {
@@ -56,4 +56,3 @@ button.addEventListener('click', function () {
 });
 
 counter();
-
